@@ -40,7 +40,7 @@ export default function Index() {
 
     async function inserir() {
 
-        if (idAlterando == 0) {
+        if (idAlterando === 0) {
             let r = await api.inserir(nome, chamada, curso, turma);
 
             if (r.erro)
@@ -120,7 +120,7 @@ export default function Index() {
                         
                         <div class="text-new-student">
                             <div class="bar-new-student"></div>
-                            <div class="text-new-student"> {idAlterando == 0 ? "Novo Aluno" : "Alterando Aluno " + idAlterando } </div>
+                            <div class="text-new-student"> {idAlterando === 0 ? "Novo Aluno" : "Alterando Aluno " + idAlterando } </div>
                         </div>
 
                         <div class="input-new-student"> 
@@ -145,7 +145,7 @@ export default function Index() {
                                     <div class="input"> <input type="text" value={turma} onChange={e => setTurma(e.target.value)} /> </div> 
                                 </div>
                             </div>
-                            <div class="button-create"> <button onClick={inserir}> {idAlterando == 0 ? "Cadastrar" : "Alterar"} </button> </div>
+                            <div class="button-create"> <button onClick={inserir}> {idAlterando === 0 ? "Cadastrar" : "Alterar"} </button> </div>
                         </div>
                     </div>
 
@@ -172,7 +172,7 @@ export default function Index() {
 
                                 {alunos.map((item, i) =>
 
-                                    <tr className={i % 2 == 0 ? "linha-alternada" : ""}>
+                                    <tr className={i % 2 === 0 ? "linha-alternada" : ""}>
                                         <td> {item.id_matricula} </td>
                                         <td title={item.nm_aluno}>
                                             {item.nm_aluno != null && item.nm_aluno.length >= 20
